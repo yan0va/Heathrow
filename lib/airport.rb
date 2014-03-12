@@ -2,24 +2,14 @@ require "./lib/weather"
 
 class Airport
 
-	# attr_reader :name
-	# attr_reader :capacity
-	# attr_reader :name, :capacity
-
 	include Weather
 	
+	attr_reader :name, :capacity
+
 	def initialize (name, default_capacity = 215)
 		@name     = name
 		@capacity = default_capacity
 		@planes   = []
-	end
-
-	def name
-		@name	
-	end
-
-	def capacity
-		@capacity
 	end
 
 	def planes_count
@@ -42,13 +32,6 @@ class Airport
 
 	def full?
 		@planes.count == capacity
-		# --------
- 		# if @planes.count == @capacity
- 		# 	return true
- 		# else
- 		# 	return false
- 		# end
- 		# -------------
 	end
 
 end

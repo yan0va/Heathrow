@@ -9,7 +9,6 @@ describe "Airport" do
 	context "at initialization" do
 
 		it "should have a name" do
-			# airport = Airport.new("Heathrow")
 			expect(airport.name).to eq("Heathrow")
 		end
 
@@ -30,15 +29,12 @@ describe "Airport" do
 		end
 
 		it "should be able to park a plane" do 
-			expect(airport.planes_count).to eq(0)
 			airport.park(plane)
 			expect(airport.planes_count).to eq(1)
 		end
 
 		it "should be able to release a plane" do 
-			expect(airport.planes_count).to eq(0)
 			airport.park(plane)
-			expect(airport.planes_count).to eq(1)
 			airport.release(plane)
 			expect(airport.planes_count).to eq(0)
 		end
@@ -51,26 +47,18 @@ describe "Airport" do
 
 		it "should change the status of a plane after taking off" do
 			airport.park(plane)
-			expect(plane).not_to be_flying
 			airport.release(plane)
 			expect(plane).to be_flying
 		end
 
 		it "should know when it's full" do
-			expect(airport.planes_count).to eq(0) 
 			(@default_capacity).times { airport.park(Plane.new("xxx")) }
 			expect(airport).to be_full
 		end
 
 		it "should not allow a plane to land if it's full" do
-			expect(airport.planes_count).to eq(0) 
 			(@default_capacity).times { airport.park(Plane.new("xxx")) }
-			expect(airport).to be_full
 			expect{airport.park(Plane.new("xxx"))}.to raise_error(RuntimeError)
-		end
-
-		it "should know how many planes there are parked" do 
-			expect(airport.planes_count).to eq(0)
 		end
 
 		it "should know what planes there are parked" do
@@ -102,16 +90,3 @@ describe "Airport" do
 	end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,13 +3,9 @@ class Plane
 	attr_reader :name
 
 	def initialize(name)
-		@name = name
+		@name 	= name
 		@flying = true
 	end
-
-	# def name
-	# 	@name
-	# end
 
 	def flying?
 		@flying

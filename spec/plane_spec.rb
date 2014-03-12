@@ -1,4 +1,4 @@
-require "./lib/plane"
+require "plane"
 
 describe "Plane" do 
 
@@ -25,14 +25,12 @@ describe "Plane" do
 
 		it "should be able to take off" do
 			plane.land
-			expect(plane).not_to be_flying
 			plane.take_off
 			expect(plane).to be_flying
 		end
 
 		it "should not be able to land if it's not flying" do
 			plane.land
-			expect(plane).not_to be_flying
 			expect{plane.land}.to raise_error(RuntimeError)
 		end
 
